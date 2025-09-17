@@ -1,6 +1,7 @@
-########################### ACAFANGT #######################
-input_path="/XYFS01/sysu_liusy_2/BioDatahub/SFARI/SSC_WGS_pvcf"
-output_path="/XYFS01/sysu_liusy_2/USER/yangxuanyan/ASD/SSC/WGS/2.phasing/input"
+#!/bin/sh
+
+input_path="./SSC_WGS_pvcf"
+output_path="./input"
 
 mkdir -p $output_path/VCF_extract_ACAFANGT
 
