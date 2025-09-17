@@ -4,7 +4,7 @@ output_path="/XYFS01/sysu_liusy_2/USER/yangxuanyan/ASD/SSC/WGS/2.phasing/input"
 
 mkdir -p $output_path/VCF_extract_ACAFANGT
 
-for chr in $(seq 20 22); do
+for chr in $(seq 1 22); do
         echo "processing chr: $chr"
         bcftools annotate -x ^INFO/AC,^INFO/AF,^INFO/AN,^FORMAT/GT --threads 50 -Oz -o $output_path/VCF_extract_ACAFANGT/extract_ACAFANGT_chr$chr.vcf.gz $input_path/CCDG_9000JG_B01_GRM_WGS_2019-03-21_chr$chr.recalibrated_variants.flagged.vcf.gz
         echo "done bcftools"
@@ -21,7 +21,7 @@ mkdir -p $output_path/QC_F_MISSING_dropped
 F_MISSING_path=$output_path/QC_F_MISSING
 F_MISSING_dropped_path=$output_path/QC_F_MISSING_dropped
 
-for chr in $(seq 20 22); do
+for chr in $(seq 1 22); do
        echo "processing chr: $chr"
        bcftools view -e 'F_MISSING > 0.10' $input_path/extract_ACAFANGT_chr$chr.vcf.gz --threads 50 -Oz -o $F_MISSING_path/ACAFANGT_FMISSING_chr$chr.vcf.gz
        echo "done bcftools view"
@@ -44,7 +44,7 @@ mkdir -p $output_path/QC_multiallelics_dropped
 multiallelics_path=$output_path/QC_multiallelics
 multiallelics_path_dropped=$output_path/QC_multiallelics_dropped
 
-for chr in $(seq 17 19); do
+for chr in $(seq 1 22); do
        echo "processing chr: $chr"
        bcftools norm --threads 50 --fasta-ref $fre_fasta --multiallelics -any -Oz -o $multiallelics_path/ACAFANGT_FMISSING_multiallelics_chr$chr.vcf.gz $input_path/ACAFANGT_FMISSING_chr$chr.vcf.gz
        echo "done bcftools norm"
