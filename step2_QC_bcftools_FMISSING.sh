@@ -1,7 +1,7 @@
+#!/bin/sh
 
-########################## F_MISSING #######################
-input_path="/XYFS01/sysu_liusy_2/USER/yangxuanyan/ASD/SSC/WGS/2.phasing/input/VCF_extract_ACAFANGT"
-output_path="/XYFS01/sysu_liusy_2/USER/yangxuanyan/ASD/SSC/WGS/2.phasing/input"
+input_path="./VCF_extract_ACAFANGT"
+output_path="./input"
 
 mkdir -p $output_path/QC_F_MISSING
 mkdir -p $output_path/QC_F_MISSING_dropped
